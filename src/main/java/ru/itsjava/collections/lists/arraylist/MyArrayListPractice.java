@@ -64,6 +64,11 @@ public class MyArrayListPractice {
         System.out.println("list.indexOf(\"hello\") = " + list.indexOf("hello"));
         System.out.println("list.lastIndexOf(\"element4\") = " + list.lastIndexOf("element4"));
 
+        System.out.println("list.size() = " + list.size());
+        list.remove("hello");
+        System.out.println(list);
+        list.clear();
+
     }
 
 }

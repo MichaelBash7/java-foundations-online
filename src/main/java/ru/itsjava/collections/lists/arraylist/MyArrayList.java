@@ -103,9 +103,7 @@ public class MyArrayList {
         if (index > size()){
             index = size();
         }
-        for (int i = size(); i >= index ; i--) {
-            array[i + 1] = array [i];
-        }
+        if (size() + 1 - index >= 0) System.arraycopy(array, index, array, index + 1, size() + 1 - index);
         array[index] = element;
         realSize++;
 
