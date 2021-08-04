@@ -56,6 +56,7 @@ public class MyArrayListTests {
 
             assertTrue(list.contains("elem1"));
         }
+
         @DisplayName("Проверяем методы remove в MyArrayList")
         @Test
         public void shouldHaveCorrectRemoveMethods () {
@@ -95,12 +96,6 @@ public class MyArrayListTests {
 
         assertEquals(0, list.indexOf("elem1"));
         assertEquals(1, list.lastIndexOf("elem2"));
-
-
-
-
-
-
 
     }
 }

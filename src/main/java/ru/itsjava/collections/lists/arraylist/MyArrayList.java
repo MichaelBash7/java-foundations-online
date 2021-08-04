@@ -56,15 +56,12 @@ public class MyArrayList {
                 break;
             }
         }
-        if (array.length - 1 - delIndex >= 0) {
+        if (delIndex != -1 && array.length - 1 - delIndex >= 0) {
             System.arraycopy(array, delIndex + 1, array, delIndex, array.length - 1 - delIndex);
-        }
-
-        if (delIndex == -1){
-            return false;
-        }else {
             realSize--;
             return true;
+        }else{
+            return false;
         }
     }
 
