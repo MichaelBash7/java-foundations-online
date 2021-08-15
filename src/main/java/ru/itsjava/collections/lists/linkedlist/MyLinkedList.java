@@ -7,6 +7,8 @@ public class MyLinkedList {
 
 
     public int size() {
+        if(head == null) return 0;
+
         int size = 1;
         Node curNode = head;
         while (curNode.getNext() != null){
@@ -57,7 +59,7 @@ public class MyLinkedList {
     }
 
     public Object get(int index) {
-        int i = -1;
+
         if (isEmpty()) {
             return null;
         }
@@ -65,14 +67,14 @@ public class MyLinkedList {
         if (index < 0 || index > size()) {
             return null;
         }
-
+        int i = 0;
         Node curNode = head;
         while (curNode != null) {
-            i++;
             if (i == index) {
                 return curNode.getValue();
             }
             curNode = curNode.getNext();
+            i++;
 
         }
         return null;
