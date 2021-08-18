@@ -8,7 +8,7 @@ public class MyLinkedList {
 
     public int size() {
         if(head == null) return 0;
-
+        
         int size = 1;
         Node curNode = head;
         while (curNode.getNext() != null){
@@ -51,7 +51,29 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) return false;//если пустой список, возвращать ничего не надо
+
+        if (head.getValue().equals(o)) { //если совпал элемент в head, переместить указатель на след элемент
+            head = head.getNext();
+            return true;
+        }
+        if (head.getNext() == null) return false; //Провепяем есть ли дальше объект за head
+
+        Node curNode = head;
+        Node prevNode = head;
+
+        while ((curNode = curNode.getNext()) != null){ //проверяем в curNode есть элемент или нет
+            if (curNode.getValue().equals(o)){ // есди нет перемещаем curNode и prevNode дальше
+                break;
+            }
+            prevNode = prevNode.getNext();
+        }
+
+        if (curNode == null) return false; // проверка curNode на null
+
+        prevNode.setNext(curNode.getNext()); //если нашли эл-т, prevNode setNext
+        curNode.setNext(null);//убираем ссылку
+        return true;
     }
 
     public void clear() {
@@ -59,7 +81,7 @@ public class MyLinkedList {
     }
 
     public Object get(int index) {
-
+        
         if (isEmpty()) {
             return null;
         }
@@ -70,6 +92,7 @@ public class MyLinkedList {
         int i = 0;
         Node curNode = head;
         while (curNode != null) {
+
             if (i == index) {
                 return curNode.getValue();
             }
@@ -127,6 +150,7 @@ public class MyLinkedList {
             }
             prevNode = prevNode.getNext();//если мы не вышли, то перемещаем prevNode
         }
+        if (curNode == null) return null;
         Object resValue = curNode.getValue();
 
         if (curNode.getNext() == null) { // если хотим удалить элемент с конца (строка3)
@@ -153,11 +177,36 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+
+        if (isEmpty()) {
+            return -1;
+        }
+        Node curNode = head;
+        int i = -1;
+        while (curNode != null){
+            i++;
+            if (curNode.getValue().equals(o)){
+                return i;
+            }
+            curNode = curNode.getNext();
+        }
+        return -1;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        if (isEmpty()) {
+            return -1;
+        }
+        Node curNode = head;
+        int i = -1, index = -1;
+        while (curNode != null){
+            i++;
+            if (curNode.getValue().equals(o)){
+                return i;
+            }
+            curNode = curNode.getNext();
+        }
+        return index;
     }
 
     @Override

@@ -18,12 +18,17 @@ public class MyLinkedListPractice {
 //        System.out.println("list.isEmpty() = " + list.isEmpty());
         System.out.println("list.contains(\"Строка 4\") = " + list.contains("Строка 4"));
 
-        list.remove(1);
-        System.out.println("list = " + list);
-        System.out.println("list.get(0) = " + list.get(0));
+//        list.remove(1);
+//        System.out.println("list = " + list);
+//        System.out.println("list.get(0) = " + list.get(0));
+//
+//        list.set(0, "Privet");
+//        System.out.println("list = " + list);
 
-        list.set(0, "Privet");
-        System.out.println("list = " + list);
+        list.remove("Строка 4");
+        System.out.println(list);
+
+        System.out.println("list.indexOf(\"Строка 2\") = " + list.indexOf("Строка 2"));
 
     }
 }
