@@ -86,10 +86,9 @@ public class MapPractice {
 
         System.out.println("Кол-во покупателей, чье имя больше 5: ");
 
-        Iterator<String> iterator = fruitShop.keySet().iterator();
+
         int count = 0;
-        while (iterator.hasNext()) {
-            String keyCustomer = iterator.next();
+        for (String keyCustomer : fruitShop.keySet()){
             if (keyCustomer.length() > 5) {
                 count++;
             }
@@ -98,10 +97,8 @@ public class MapPractice {
 
         System.out.println("Кол-во фруктов, которые равны apple: ");
 
-        Iterator<Fruit> valuesIterator = fruitShop.values().iterator();
         int fruitsCount = 0;
-        while (valuesIterator.hasNext()){
-            Fruit values = valuesIterator.next();
+        for (Fruit values : fruitShop.values()){
             if (values.equals(apple)){
                 fruitsCount++;
             }
@@ -110,10 +107,8 @@ public class MapPractice {
 
         System.out.println("Пропустить 2 элемента со значением watermelon: ");
 
-        Iterator<Fruit> valuesElem = fruitShop.values().iterator();
         int elemCount = 0;
-        while (valuesElem.hasNext()) {
-            Fruit values = valuesElem.next();
+        for (Fruit values : fruitShop.values()) {
             if (values.getType().equals("Watermelon") && elemCount < 2) {
                 elemCount++;
             }else{
@@ -123,10 +118,8 @@ public class MapPractice {
 
         System.out.println("Пропустить элементы начинающиеся на А: ");
 
-        Iterator<Fruit> letterA = fruitShop.values().iterator();
         int letterCount = 0;
-        while (letterA.hasNext()) {
-            Fruit values = letterA.next();
+        for (Fruit values : fruitShop.values()){
             if (values.getType().startsWith("A") && letterCount < 2) {
                 letterCount++;
             }else{
@@ -136,10 +129,7 @@ public class MapPractice {
 
         System.out.println("Вернуть первый элемент значение которого Watermelon/watermelon/WATERMELOn: ");
 
-        Iterator<Fruit> firstElem = fruitShop.values().iterator();
-
-        while (firstElem.hasNext()) {
-            Fruit values = firstElem.next();
+        for (Fruit values : fruitShop.values()){
             if (values.getType().equals("Watermelon") || values.getType().equals("WATERMELOn")) {
                 System.out.println(values);
                 break;
@@ -155,11 +145,10 @@ public class MapPractice {
 
         System.out.println("Вычисляем средний вес всех фруктов: ");
 
-        Iterator<Fruit> averageWeight = fruitShop.values().iterator();
+
         double weightCount = 0.0;
         double sumWeight = 0.0;
-        while (averageWeight.hasNext()) {
-            Fruit values = averageWeight.next();
+        for (Fruit values : fruitShop.values()){
             if (values.getWeight() != 0) {
                 sumWeight += values.getWeight();
                 weightCount++;
