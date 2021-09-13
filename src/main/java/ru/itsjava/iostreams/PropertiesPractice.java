@@ -36,6 +36,5 @@ public class PropertiesPractice {
         System.out.println("propertiesFromResources.getProperty(\"myname\") = " + propertiesFromResources.getProperty("myname"));
         System.out.println("propertiesFromResources.getProperty(\"mynickname\") = " + propertiesFromResources.getProperty("mynickname"));
 
-
     }
 }
