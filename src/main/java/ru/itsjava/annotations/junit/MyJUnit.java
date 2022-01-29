@@ -16,7 +16,7 @@ public class MyJUnit {
     private final List<Method> beforeAllMethods = new ArrayList<>();
     private final List<Method> beforeMethod = new ArrayList<>();
     private final List<Method> afterMethod = new ArrayList<>();
-    private final List<Method> afterAllMethod = new ArrayList<>();
+    private final List<Method> afterAllMethods = new ArrayList<>();
     private final List<Method> testMethods = new ArrayList<>();
 
 
@@ -45,7 +45,7 @@ public class MyJUnit {
                 method2.invoke(objTestClass);
             }
         }
-        for (Method method : afterAllMethod){
+        for (Method method : afterAllMethods){
             method.invoke(objTestClass);
         }
 
@@ -57,13 +57,13 @@ public class MyJUnit {
         for (Method method : objTestClass.getClass().getDeclaredMethods()) {
             if (method.isAnnotationPresent(BeforeAll.class)) {
                 beforeAllMethods.add(method);
-            }if (method.isAnnotationPresent(Before.class)) {
+            }else if (method.isAnnotationPresent(Before.class)) {
                 beforeMethod.add(method);
-            }if (method.isAnnotationPresent(After.class)) {
+            }else if (method.isAnnotationPresent(After.class)) {
                 afterMethod.add(method);
-            }if (method.isAnnotationPresent(AfterAll.class)) {
-                afterAllMethod.add(method);
-            } else if (method.isAnnotationPresent(Test.class)) {
+            }else if (method.isAnnotationPresent(AfterAll.class)) {
+                afterAllMethods.add(method);
+            }else if (method.isAnnotationPresent(Test.class)) {
                 testMethods.add(method);
             }
         }
